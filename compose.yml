@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+
+  nginx:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    environment:
+      - DB_PASSWORD=${PASSWORD}
+    ports:
+      - "8081:80"
+    volumes:
+      - ./front/data:/usr/shar/nginx/html
+
